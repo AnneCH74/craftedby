@@ -12,8 +12,9 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('business_specialities', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+            $table->uuid('id')->primary();
+            $table->foreign('businesses_id');
+            $table->foreign('specialities_id');
         });
     }
 
