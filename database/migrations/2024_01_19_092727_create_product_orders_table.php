@@ -12,8 +12,14 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('product_orders', function (Blueprint $table) {
-            $table->foreign('products_id');
-            $table->foreign('orders_id');
+            $table->foreign('products_id')
+                ->references('id')
+                ->on('products')
+                ->onDelete('cascade');
+            $table->foreign('orders_id')
+                ->references('id')
+                ->on('orders')
+                ->onDelete('cascade');
             $table->integer('quantity');
         });
     }
