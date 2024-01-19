@@ -13,20 +13,17 @@ return new class extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->foreign('businesses_id')
-                    ->references('id')
-                    ->on('businesses')
-                    ->onDelete('cascade');
+            $table->foreignUuid('business_id');
             $table->string('name');
             $table->decimal('price');
             $table->integer('stock');
-            $table->foreign('materials_id');
+            $table->foreignUuid('material_id');
             $table->string('size');
             $table->integer('weight');
-            $table->foreign('colors_id');
+            $table->foreignUuid('color_id');
             $table->boolean('customisable');
             $table->string('image');
-            $table->timestamps('created at');
+            $table->timestamps();
         });
     }
 

@@ -14,14 +14,11 @@ return new class extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->integer('order_number');
-            $table->foreign('users_id')
-                ->references('id')
-                ->on('users')
-                ->onDelete('cascade');
+            $table->foreignUuid('users_id');
             $table->decimal('total_amount');
             $table->decimal('tax_amount');
             $table->string('payment_status');
-            $table->timestamps('created_at');
+            $table->timestamps();
         });
     }
 

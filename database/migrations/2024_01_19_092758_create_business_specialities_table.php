@@ -13,14 +13,8 @@ return new class extends Migration
     {
         Schema::create('business_specialities', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->foreign('businesses_id')
-                ->references('id')
-                ->on('businesses')
-                ->onDelete('cascade');
-            $table->foreign('specialities_id')
-                ->references('id')
-                ->on('specialities')
-                ->onDelete('cascade');
+            $table->foreignUuid('businesses_id');
+            $table->foreignUuid('specialities_id');
         });
     }
 

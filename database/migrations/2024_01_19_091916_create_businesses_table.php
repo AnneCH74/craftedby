@@ -13,26 +13,17 @@ return new class extends Migration
     {
         Schema::create('businesses', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->foreign('users_id')
-                ->references('id')
-                ->on('users')
-                ->onDelete('cascade');
+            $table->foreignUuid('users_id');
             $table->string('name');
             $table->string('address');
             $table->string('postal_code');
             $table->string('city');
             $table->bigInteger('siret');
-            $table->foreign('crafts_id')
-                ->references('id')
-                ->on('crafts')
-                ->onDelete('cascade');
+            $table->foreignUuid('crafts_id');
             $table->string('website');
             $table->string('biography');
             $table->string('history');
-            $table->foreign('themes_id')
-                ->references('id')
-                ->on('themes')
-                ->onDelete('cascade');
+            $table->foreignUuid('themes_id');
             $table->timestamps();
         });
     }
