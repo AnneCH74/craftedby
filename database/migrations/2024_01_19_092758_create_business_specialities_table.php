@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('business_specialities', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->foreignUuid('businesses_id');
-            $table->foreignUuid('specialities_id');
+            $table->foreignUuid('businesses_id')->constrained()->cascadeOnDelete();
+            $table->foreignUuid('specialities_id')->constrained()->cascadeOnDelete();
         });
     }
 

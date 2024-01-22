@@ -14,11 +14,11 @@ return new class extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->integer('order_number');
-            $table->foreignUuid('users_id');
             $table->decimal('total_amount');
             $table->decimal('tax_amount');
             $table->string('payment_status');
             $table->timestamps();
+            $table->foreignUuid('users_id')->constrained()->cascadeOnDelete();
         });
     }
 

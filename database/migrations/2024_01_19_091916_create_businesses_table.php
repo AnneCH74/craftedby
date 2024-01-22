@@ -13,18 +13,18 @@ return new class extends Migration
     {
         Schema::create('businesses', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->foreignUuid('users_id');
             $table->string('name');
             $table->string('address');
             $table->string('postal_code');
             $table->string('city');
             $table->bigInteger('siret');
-            $table->foreignUuid('crafts_id');
             $table->string('website');
             $table->string('biography');
             $table->string('history');
-            $table->foreignUuid('themes_id');
             $table->timestamps();
+            $table->foreignUuid('users_id')->constrained()->cascadeOnDelete();
+            $table->foreignUuid('crafts_id')->constrained()->cascadeOnDelete();
+            $table->foreignUuid('themes_id')->constrained()->cascadeOnDelete();
         });
     }
 
