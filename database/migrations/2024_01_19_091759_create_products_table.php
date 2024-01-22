@@ -20,7 +20,7 @@ return new class extends Migration
             $table->foreignUuid('material_id');
             $table->string('size');
             $table->integer('weight');
-            $table->foreignUuid('color_id');
+            $table->foreignUuid('color_id')->constrained()->cascadeOnDelete();
             $table->boolean('customisable');
             $table->string('image');
             $table->timestamps();
