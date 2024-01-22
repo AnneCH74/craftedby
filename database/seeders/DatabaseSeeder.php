@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use App\Models\Color;
+use App\Models\Material;
 use Database\Factories\UserFactory;
 use Illuminate\Database\Seeder;
 
@@ -18,5 +19,6 @@ class DatabaseSeeder extends Seeder
 //     User::factory()->unverified()->create();
 
        Color::factory(10)->create();
+       Material::factory(5)->create();
     }
 }
